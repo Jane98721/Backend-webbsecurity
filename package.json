@@ -1,0 +1,20 @@
+{
+  "name": "http-classic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/service.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node ./src/service.js",
+    "dev": "node --watch ./src/service.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0"
+  }
+}
