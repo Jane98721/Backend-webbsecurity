@@ -1,29 +1,15 @@
 const router = require('express').Router();
 
-//Create from posted json
-router.post("/", (req, res) => {
-    res.status(201).json({id: 1, ...req.body});
-});
+const userController = require('../controllers/user_controller.js')
 
-//Get all
-router.get("/", (req, res) => {
-    res.status(200).json([]);
-});
+router.post("/", userController.create_user);
 
+router.get("/", userController.get_all_users);
 
-//Get by ID
-router.get("/:id", (req, res) => {
-    res.status(200).json({id: req.params.id});
-});
+router.get("/:id", userController.get_user);
 
-//Update by ID
-router.put("/:id", (req, res) => {
-    res.status(200).json({id: req.params.id, ...req.body});
-});
+router.put("/:id", userController.put_user);
 
-//Delete by ID
-router.delete("/:id", (req, res) => {
-    res.sendStatus(204);
-});
+router.delete("/:id", userController.delete_user);
 
 module.exports = router;
