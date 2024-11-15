@@ -6,12 +6,18 @@ const helmet = require ('helmet')
 
 const app = express();
 
-app.use(helmet())
-app.use(cors({
-    origin: 'https://localhost/'
-}
+app.get('/health', (req, res) => {
 
-));
+    try {
+    res.status(200).json({status: 'UP', timestamp: new Date()})
+} catch (error) {
+    console.error('Health check failed', error)
+    res.status(500).send('Server error')
+}
+})
+
+app.use(helmet())
+app.use(cors());
 app.use(bodyParser.json());
 
 app.listen(4000, () => {
